@@ -6,6 +6,15 @@ class Game {
     start(){
         this.Player = new Player ();
     }
+
+    movePlayer(direction){
+        if(direction === "left"){
+                this.player.moveLeft();
+        }
+        else if(direction === "right"){
+                this.player.moveRight();
+        }
+    }
 }
 
 
