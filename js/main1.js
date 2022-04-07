@@ -1,23 +1,36 @@
-const game = new Game();
+
+
+function createDomElement(className){
+    const board = document.getElementById("board");
+    const newElm = document.createElement("div");
+    newElm.className = className;
+
+    board.appendChild(newElm);
+
+    return newElm;
+}
+
+
+function drawDomElement(instance){
+    console.log("the element to paint is... ", instance.domElement)
+    console.log("new horizontal position will be... ", instance.positionX)
+    
+    instance.domElement.style.left = instance.positionX + "%";
+    instance.domElement.style.bottom = instance.positionY + "%";
+}
+
+const game = new Game(createDomElement, drawDomElement);
 game.start();
 
+
 document.addEventListener("keydown", function(event){
-    console.log('Hello')
-        switch(event.key){
-            case "ArrowRight":
-                game.movePlayer("right");
-                break;
-            case "ArrowLeft":
-                game.movePlayer("left");
-                break;
-        }
-    });
+    switch(event.key){
+        case "ArrowRight":
+            game.movePlayer("right");
+            break;
+        case "ArrowLeft":
+            game.movePlayer("left");
+            break;
+    }
+});
 
-////// ---> andere Option  ///////
-//     if(event.key === "ArrowRight"){
-//         console.log("we want to move to the right")
-//     } else if (event.key === "ArrowLeft"){
-//         console.log("we want to move to the left")
-//     }
-
-// });

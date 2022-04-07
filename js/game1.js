@@ -1,38 +1,42 @@
 
+
 class Game {
-    constructor(){
-        this.player = 0;
+    constructor(create, draw){
+        this.player = null;
+        this.create = create;
+        this.draw = draw;
     }
+
     start(){
-        this.Player = new Player ();
+        this.player = new Player();
+        this.player.domElement = this.create("player"); //create a dom element with the class "player"
+        this.draw(this.player);
     }
 
     movePlayer(direction){
         if(direction === "left"){
-                this.player.moveLeft();
+            this.player.moveLeft();
+        } else if (direction === "right"){
+            this.player.moveRight();
         }
-        else if(direction === "right"){
-                this.player.moveRight();
-        }
+        this.draw(this.player);
     }
 }
 
 
 class Player {
-    constructor(){
-        this.positionX = 0;
+    constructor() {
+        this.positionX = 45;
+        this.positionY = 0;
+        this.domElement = null;
+    }
+    moveLeft() {
+        this.positionX--
     }
 
-    moveLeft(){
-        this.positionX--;
-    }
-    moveRight(){
+    moveRight() {
         this.positionX++;
-        console.log('move right' + this.position);
     }
 }
 
-const myPlayer = new Player();
 
-myPlayer.moveLeft();
-myPlayer.moveRight();
