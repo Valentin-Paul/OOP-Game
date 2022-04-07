@@ -2,7 +2,7 @@ const game = new Game();
 game.start();
 
 document.addEventListener("keydown", function(event){
-    
+    console.log('Hello')
         switch(event.key){
             case "ArrowRight":
                 game.movePlayer("right");
