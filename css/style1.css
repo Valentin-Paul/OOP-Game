@@ -8,13 +8,11 @@
 .player {
     position: absolute;
     background-color: rgb(218, 12, 12);
-    height: 20px;
-    width: 120px;
+    
 }
 
 .obstacle {
     position: absolute;
     background-color: rgb(36, 12, 218);
-    height: 20px;
-    width: 80px;
+  
 }
